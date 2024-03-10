@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página principal</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='email.png')}}">
+    <link rel="stylesheet"  type="text/css" href="{{url_for('static', filename='home.css')}}">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <img src="{{url_for('static', filename='logo.png')}}" alt="Logo">
+    </div>
+    <div class="info">
+        <h1>a8019401@xtec.cat</h1>
+        <p>933.382.553</p>
+        <p>c/ Sant Pius X, núm 8. 08901 - L'Hospitalet de LLobregat.</p>
+    </div>
+</header>
+
+<div class="container">
+    {% if 'nombre' in session %}
+    <h1>Bienvenid@, {{ session['nombre'] }}</h1>
+
+    <nav>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('logout') }}">Cerrar sesión</a>
+    </nav>
+    <h2>Evaluación</h2>
+
+    <div class="new-div">
+        <h3>ASIX2-1-M06 - Administració de sistemes operatius</h3>
+        <img src="{{url_for('static', filename='fondo1.jpg')}}">
+
+           <table>
+            <tr>
+                <th>Primera convocatòria FINAL</th>
+                <th>ELEMENT MANUAL</th>
+                <th>UF</th>
+            </tr>
+            <tr>
+                <td>ELEMENT MANUAL</td>
+                <td>UF2</td>
+                <td>8</td>
+            </tr>
+        </table>
+    </div>
+    <div class="new-div">
+        <h3>ASIX2-1-M09 - Implantació d'aplicacions web</h3>
+        <img src="{{url_for('static', filename='fondo2.jpg')}}">
+
+         <table>
+            <tr>
+                <th>Primera convocatòria FINAL</th>
+                <th>ELEMENT MANUAL</th>
+                <th>UF</th>
+            </tr>
+            <tr>
+                <td>ELEMENT MANUAL</td>
+                <td>UF2</td>
+                <td>8</td>
+            </tr>
+        </table>
+    </div>
+    <div class="new-div">
+        <h3>ASIX2-M08 Serveis de xarxa i Internet</h3>
+        <img src="{{url_for('static', filename='fondo3.jpg')}}">
+
+         <table>
+            <tr>
+                <th>Primera convocatòria FINAL</th>
+                <th>ELEMENT MANUAL</th>
+                <th>UF</th>
+            </tr>
+            <tr>
+                <td>ELEMENT MANUAL</td>
+                <td>UF2</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>ELEMENT MANUAL</td>
+                <td>UF3</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>ELEMENT MANUAL</td>
+                <td>UF4</td>
+                <td>9</td>
+            </tr>
+        </table>
+    </div>
+    <div class="new-div">
+        <h3>ASIX2-1 - Tutoria</h3>
+        <img src="{{url_for('static', filename='fondo4.jpg')}}">
+
+
+    </div>
+    {% else %}
+    <h1>Intranet</h1>
+    <nav>
+        <a href="{{ url_for('login') }}">Iniciar sesión</a>
+        <a href="{{ url_for('registro') }}">Registro</a>
+    </nav>
+
+    <h2>Noticias</h2>
+    <div class="noticia">
+        <h3>Primera Fira Virtual Internacional d’Empreses Simulades</h3>
+        <img src="{{url_for('static', filename='noticia1.png')}}">
+        <p>El passat 27 de febrer, l’alumnat de 2n A del grau mitjà de Gestió Administrativa va presentar l'estand de la seva empresa, RepaperSAS, a la Primera Fira Virtual Internacional d’Empreses Simulades.</p>
+    </div>
+    <div class="noticia">
+        <h3>Primera trucada hologràfica entre dos instituts</h3>
+        <img src="{{url_for('static', filename='noticia2.png')}}">
+        <p>T’imagines poder veure i parlar en directe amb un familiar que viu a l'estranger com si estigués just davant teu? o, rebre classes de guitarra en temps real veient la postura del professor en 3D alhora que et corregeix?</p>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
+
+
+
+

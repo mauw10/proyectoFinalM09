@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='email.png')}}">
+    <link rel="stylesheet"  type="text/css" href="{{url_for('static', filename='app.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>AÑADIR CORREO ELECTRÓNICO</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <div class="container">
+    <h1 id="titulo">Añadir mail</h1>
+
+    <h3> Introduce el nombre y el correo electrónico que deseas agregar</h3>
+    <form action="{{url_for('addmail')}}" method="post">
+        <div class="mb-3 mt-3">
+            <label for="nom" class="form-label required">Nombre:</label>
+            <input type="text" name="nom" id="nom" class="form-control" required/>
+        </div>
+        <div class="mb-3">
+            <label for="correu" class="form-label required">Correo electrónico:</label>
+            <input type="email" name="correu" id="correu" class="form-control" required/>
+        </div>
+        <div class="form-check mb-3">
+            <input type="checkbox" id="modif" name="modif" value="True" class="form-check-input"/>
+            <label for="modif" class="form-check-label">Modificar si ya existe pero es diferente</label>
+        </div>
+        <input type="submit" value="AGREGAR" class="btn btn-primary"/>
+     </form>
+
+    {% if result_msg == "JAEXISTEIX" %}
+      <h2>El correo para el nombre <b>{{ nom }}</b> esta en la base de datos.</h2>
+    {% elif result_msg == "MODIFICAT" %}
+      <h2>El correo para el nombre <b>{{ nom }}</b> se ha modificado a: <b>{{ correu }}</b></h2>
+    {% else %}
+      <h2>El correo para el nombre <b>{{ nom }}</b> ha sido agregado como: <b>{{ correu }}</b></h2>
+    {% endif %}
+
+    <h4 class="text-enlace">
+        Puedes consultar los correos en el enlace <a href="{{url_for('getmail')}}" target="_blank">GETMAIL</a>
+    </h4>
+        <nav>
+    <a href="{{ url_for('about') }}">Volver</a>
+    </nav>
+    </div>
+
+
+</body>
+</html>

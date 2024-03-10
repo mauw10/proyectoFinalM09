@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about.css') }}">
+</head>
+<body>
+    <div class="centered-box">
+        <h1>About me:</h1>
+        <p>Prácticas anteriores:</p>
+
+        <nav>
+            <a href="{{ url_for('addmail') }}">Agregar correo</a>
+            <a href="{{ url_for('getmail') }}">Ver correo</a>
+            <a href="{{ url_for('nombre_edad') }}">Edad y nombre</a>
+            <a href="{{ url_for('home') }}">Volver home</a>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inicio de sesión</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='email.png')}}">
+    <link rel="stylesheet"  type="text/css" href="{{url_for('static', filename='app.css')}}">
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>¡Inicia sesión!</h1>
+        <form method="POST" action="/login">
+            <input type="text" name="nombre" placeholder="Nombre">
+            <input type="password" name="password" placeholder="Contraseña">
+            <button type="submit" class="float-left">Entrar</button>
+        </form>
+    </div>
+    <p class="clear-both">¿No tienes cuenta? <a href="{{ url_for('registro') }}">Regístrate aquí</a></p>
+
+
+</body>
+</html>
+
+

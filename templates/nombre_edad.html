@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de edad</title>
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='email.png')}}">
+    <link rel="stylesheet"  type="text/css" href="{{url_for('static', filename='nombre_edad.css')}}">
+</head>
+<body>
+    <div class="container">
+        <h1>Calcula tu edad</h1>
+        <form action="{{ url_for('calcular') }}" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required min="1">
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if nombre and edad %}
+        <div class="resultado">
+            <h2>Hola, {{ nombre }}!</h2>
+            <p>Tu edad actual es de {{ edad }} años.</p>
+            <p>Cumplirás 100 años en el año {{ año_cumplira_100 }}.</p>
+        </div>
+        {% endif %}
+    </div>
+    <nav>
+        <a href="{{ url_for('about') }}">Volver</a>
+    </nav>
+
+</body>
+</html>
